@@ -1,6 +1,6 @@
 # posthtml-transfomer
 
-posthtml-transfomer is plugin for [PostHTML](https://github.com/posthtml/posthtml). It process HTML by special directives in node attrs.
+posthtml-transfomer is plugin for [PostHTML](https://github.com/posthtml/posthtml). It process HTML by special directives in node attrs, such as inline scripts and styles, remove useless tags, concat scripts and styles etc.
 
 ## Directives
 
@@ -9,6 +9,8 @@ posthtml-transfomer is plugin for [PostHTML](https://github.com/posthtml/posthtm
 * `ph-concat-start` and `ph-concat-end` - Concat `script` and `link` code.
 
 ## Examples
+
+`ph-inline` directive:
 
 ``` javascript
 // src/lib.js
@@ -23,6 +25,7 @@ console.log('hello posthtml-transformer');
 </script>
 ```
 
+`ph-remove` directive:
 
 ``` javascript
 // index.html
@@ -35,6 +38,7 @@ console.log('hello posthtml-transformer');
 </body>
 ```
 
+`ph-concat-start` and `ph-concat-end` directive:
 
 ``` javascript
 // src/mod1.js
