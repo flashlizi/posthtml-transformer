@@ -137,7 +137,7 @@ function readFileContent(src, options){
       console.log('error:', err);
     });
   }else{
-    var content = fs.readFileSync(path.resolve('./', src), options.encoding);
+    var content = fs.readFileSync(path.resolve(transformOptions.root, src), options.encoding);
     options.callback && options.callback(content);
   }
 }
