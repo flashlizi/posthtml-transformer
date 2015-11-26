@@ -22,8 +22,9 @@ function transformer(options){
 
   return function transform(tree, callback){
     var completed = false, tasks = 0;
-    function done(){
-      if(!--tasks && completed) {
+    function done(isTaskDone){
+      if(isTaskDone) tasks--;
+      if(!tasks && completed){
         callback(null, tree);
       }
     }
@@ -54,7 +55,7 @@ function transformer(options){
             delete attrs['ph-inline'];
             delete attrs['src'];
             delete attrs['type'];
-            done();
+            done(true);
           });
         }else if(node.tag === 'link'){
           tasks++;
@@ -65,7 +66,7 @@ function transformer(options){
             delete attrs['rel'];
             delete attrs['href'];
             delete attrs['type'];
-            done();
+            done(true);
           });
         }
         return node;
@@ -97,13 +98,16 @@ function transformer(options){
       }
 
       if(node.tag === 'script' || node.tag === 'style'){
-        setNodeContent(node, node.content.toString());
+        if(node.content){
+          setNodeContent(node, node.content.toString());
+        }
       }
 
       return node;
     });
     
     completed = true;
+    done();
     return tree;
   };
 };
