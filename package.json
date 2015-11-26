@@ -1,0 +1,22 @@
+{
+  "name": "posthtml-transformer",
+  "version": "0.1.0",
+  "description": "A posthtml plugin for transforming HTML contents",
+  "keywords": [
+    "posthtml",
+    "transformer"
+  ],
+  "dependencies": {
+    "clean-css": "~3.4.8",
+    "uglify-js": "~2.6.1"
+  },
+  "devDependencies": {
+    "posthtml": "~0.8.0"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/flashlizi/posthtml-transformer.git"
+  },
+  "license": "MIT"
+}
