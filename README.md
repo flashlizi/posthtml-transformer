@@ -85,7 +85,15 @@ gulp.task('posthtml', function(){
     phTransformer({
       minifyJS: true,
       minifyCSS: true
-    })
+    }),
+    // phTransformer.match({tag:'html'}, function(node){
+    //   node.attrs = {'hello': 'world'};
+    //   return node;
+    // }),
+    // phTransformer.walk(function(node){
+    //   console.log('walk:', node.tag);
+    //   return node;
+    // })
   ];
   return gulp.src('index.html')
     .pipe(posthtml(plugins))
@@ -100,3 +108,8 @@ gulp.task('posthtml', function(){
 
 * `minifyJS` - minify javascript in HTML, default is `true`.
 * `minifyCSS` - minify css in HTML, default is `true`.
+
+## APIs
+
+* `match` - same as `PostHTML`'s `match`.
+* `walk` - same as `PostHTML`'s `walk`.
