@@ -69,6 +69,12 @@ console.log('mod3');
 
 ## Gulp Usage
 
+Install posthtml-transformer:
+```
+npm install posthtml-transformer --save-dev
+```
+
+
 ``` javascript
 var gulp = require('gulp');
 var posthtml = require('gulp-posthtml');
